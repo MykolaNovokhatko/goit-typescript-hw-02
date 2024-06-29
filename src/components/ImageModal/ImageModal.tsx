@@ -1,9 +1,16 @@
 import Modal from 'react-modal';
 import css from './ImageModal.module.css';
+import { Images } from '../App/App.types';
+
+interface ImageModalTypes {
+  isOpen: boolean;
+  onRequestClose: () => void;
+  image: Images | null;
+}
 
 Modal.setAppElement('#root');
 
-export default function ImageModal({ isOpen, onRequestClose, image }) {
+const ImageModal: React.FC<ImageModalTypes> = ({ isOpen, onRequestClose, image }) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -11,8 +18,8 @@ export default function ImageModal({ isOpen, onRequestClose, image }) {
       contentLabel="Image Modal"
       className={css.modal}
       overlayClassName={css.overlay}
-      schouldCloseOnEsk={true}
-      schouldCloseOnOverlayClick={true}
+      shouldCloseOnEsc={true}
+      shouldCloseOnOverlayClick={true}
     >
       {image && (
         <div>
@@ -23,3 +30,5 @@ export default function ImageModal({ isOpen, onRequestClose, image }) {
     </Modal>
   );
 }
+
+export default ImageModal;

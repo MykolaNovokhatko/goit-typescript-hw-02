@@ -1,6 +1,12 @@
 import css from './ImageCard.module.css';
+import { Images } from '../App/App.types';
 
-export default function ImageCard({ item, onClick }) {
+interface ImageCardProps {
+  item: Images;
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+}
+
+const ImageCard: React.FC<ImageCardProps> = ({ item, onClick }) => {
   return (
     <div onClick={onClick}>
       <img
@@ -13,3 +19,5 @@ export default function ImageCard({ item, onClick }) {
     </div>
   );
 }
+
+export default ImageCard;

@@ -8,15 +8,16 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
 import css from './App.module.css';
+import { Images } from './App.types';
 
 export default function App() {
-  const [images, setImages] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(null);
+  const [images, setImages] = useState<Images[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [currentImage, setCurrentImage] = useState<Images | null>(null);
 
   useEffect(() => {
     if (searchQuery.trim() === '') {
@@ -26,7 +27,7 @@ export default function App() {
       try {
         setIsLoading(true);
         setIsError(false);
-        const data = await getImages(searchQuery, currentPage);
+        const data: Images[] = await getImages(searchQuery, currentPage);
         setImages(prevImages => [...prevImages, ...data]);
       } catch (error) {
         setIsError(true);
@@ -37,7 +38,7 @@ export default function App() {
     fetchImages();
   }, [currentPage, searchQuery]);
 
-  const handleSearch = async topic => {
+  const handleSearch = async (topic: string): Promise<void> => {
     setSearchQuery(topic);
     setCurrentPage(1);
     setImages([]);
@@ -47,7 +48,7 @@ export default function App() {
     setCurrentPage(currentPage + 1);
   };
 
-  const openModal = image => {
+  const openModal = (image: Images | null) => {
     setCurrentImage(image);
     setIsModalOpen(true);
   };
