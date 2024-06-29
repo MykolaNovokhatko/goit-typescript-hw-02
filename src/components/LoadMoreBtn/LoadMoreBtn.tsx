@@ -1,3 +1,4 @@
+import React from 'react';
 import css from './LoadMoreBtn.module.css';
 
 interface BtnType {

@@ -1,3 +1,4 @@
+import React from 'react';
 import css from './ImageCard.module.css';
 import { Images } from '../App/App.types';
 

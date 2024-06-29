@@ -1,3 +1,4 @@
+import React from 'react';
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import { toast } from "react-hot-toast";
 import css from "./SearchBar.module.css";

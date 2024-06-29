@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getImages } from '../../images-api';
 import { Toaster } from 'react-hot-toast';
 import { ThreeDots } from 'react-loader-spinner';
