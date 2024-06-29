@@ -1,0 +1,9 @@
+.loadingError {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .threeDots {
+    display: flex;
+    justify-content: center;
+  }

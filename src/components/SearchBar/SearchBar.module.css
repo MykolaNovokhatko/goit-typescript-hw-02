@@ -1,0 +1,35 @@
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 16px;
+    gap: 4px;
+  }
+  
+  .field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    font-size: 18px;
+    border: 2px solid rgb(140, 140, 140);
+    border-radius: 3px;
+  }
+  
+  .field:hover {
+      border: 2px solid rgb(0, 0, 0);
+  }
+  
+  .searchBtn {
+    padding: 8px;
+    font-size: 18px;
+    border: 2px solid rgb(140, 140, 140);
+    border-radius: 3px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    font-weight: 600;
+  }
+  
+  .searchBtn:hover {
+      border: 2px solid rgb(0, 0, 0);
+  }
